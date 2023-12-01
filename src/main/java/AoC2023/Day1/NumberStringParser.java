@@ -5,13 +5,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
-public class NumberStringParser extends NumberParser{
+public class NumberStringParser {
+    private final List<String> lines = new ArrayList<>();
 
     public NumberStringParser(List<String> lines) {
-        super(lines);
+        this.lines.addAll(lines);
     }
 
-    @Override
     public Integer getSum() {
         return parse().stream().mapToInt(Integer::intValue).sum();
     }
