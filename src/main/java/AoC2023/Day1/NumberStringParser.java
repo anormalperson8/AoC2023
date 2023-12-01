@@ -13,11 +13,7 @@ public class NumberStringParser {
     }
 
     public Integer getSum() {
-        return this.parse().stream().mapToInt(Integer::intValue).sum();
-    }
-
-    private List<Integer> parse() {
-        return this.lines.stream().map(this::parseLine).toList();
+        return this.lines.stream().map(this::parseLine).mapToInt(Integer::intValue).sum();
     }
 
     private Integer parseLine(String line) {
