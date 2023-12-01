@@ -3,7 +3,7 @@ package AoC2023.Day1;
 import java.util.*;
 
 public class NumberParser {
-    protected final List<String> lines = new ArrayList<>();
+    private final List<String> lines = new ArrayList<>();
 
     public NumberParser(List<String> lines) {
         this.lines.addAll(lines);
