@@ -5,19 +5,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
-public class NumberTurner {
-    private final List<String> lines = new ArrayList<>();
+public class NumberStringParser extends NumberParser{
 
-    public NumberTurner(List<String> lines) {
-        this.lines.addAll(lines);
+    public NumberStringParser(List<String> lines) {
+        super(lines);
     }
 
+    @Override
     public Integer getSum() {
         return parse().stream().mapToInt(Integer::intValue).sum();
-    }
-
-    public Integer getSum2() {
-        return parse2().stream().mapToInt(Integer::intValue).sum();
     }
 
     private List<Integer> parse() {
@@ -25,15 +21,6 @@ public class NumberTurner {
     }
 
     private Integer parseLine(String line) {
-        String temp = line.replaceAll("[^0-9]", "");
-        return Integer.parseInt(temp.charAt(0) + "" + temp.charAt(temp.length() - 1));
-    }
-
-    private List<Integer> parse2() {
-        return lines.stream().map(this::parseLine2).toList();
-    }
-
-    private Integer parseLine2(String line) {
         // Get all the things for matching
         List<String> patternStrings = List.of(
                 "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
@@ -66,14 +53,8 @@ public class NumberTurner {
             }
         });
 
-        List<Integer> indexes = new ArrayList<>(indexToValueFront.keySet());
-        Collections.sort(indexes);
-        int first = indexToValueFront.get(indexes.get(0));
-        List<Integer> indexes2 = new ArrayList<>(indexToValueBack.keySet());
-        Collections.sort(indexes2);
-        int second = indexToValueBack.get(indexes2.get(indexes2.size() - 1));
-
-        return first * 10 + second;
+        return indexToValueFront.get(indexToValueFront.keySet().stream().sorted().toList().get(0)) * 10 +
+                indexToValueBack.get(indexToValueBack.keySet().stream().sorted().toList().get(indexToValueBack.size() - 1));
     }
 
     private static <T, E> T getKeysByValue(Map<T, E> map, E value) {
@@ -81,5 +62,6 @@ public class NumberTurner {
                   .filter(entry -> entry.getValue().equals(value))
                   .map(Map.Entry::getKey).toList().get(0);
     }
+
 
 }
