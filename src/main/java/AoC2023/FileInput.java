@@ -10,23 +10,21 @@ import java.util.stream.Stream;
 
 public class FileInput {
     private final List<String> lines = new ArrayList<>();
-    private final String fileName;
 
     public FileInput(String fileName){
-        this.fileName = fileName;
-        this.read();
+        this.read(fileName);
     }
 
-    private void read() {
-        try (Stream<String> stream = Files.lines(Path.of(this.fileName))) {
-            stream.forEach(lines::add);
+    private void read(String fileName) {
+        try (Stream<String> stream = Files.lines(Path.of(fileName))) {
+            stream.forEach(this.lines::add);
         } catch (IOException e) {
             throw new RuntimeException("Couldn't read the file.");
         }
     }
 
     public void test() {
-        IntStream.range(0, 10).forEach(i -> System.out.println(lines.get(i)));
+        IntStream.range(0, 10).forEach(i -> System.out.println(this.lines.get(i)));
     }
 
     public List<String> getLines() {
