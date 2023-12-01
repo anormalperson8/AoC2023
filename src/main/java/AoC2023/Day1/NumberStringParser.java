@@ -26,38 +26,17 @@ public class NumberStringParser {
 
         // Map from word to value
         Map<String, Integer> wordToValue = new HashMap<>();
-        IntStream.range(0, 10).forEach(i -> wordToValue.put(patternStrings.get(i), i));
+        IntStream.range(0, 20).forEach(i -> wordToValue.put(patternStrings.get(i), i));
 
         // Map of the digit's index to its value
-        Map<Integer, Integer> indexToValueFront = new HashMap<>();
-        Map<Integer, Integer> indexToValueBack = new HashMap<>();
-
+        Map<Integer, Integer> indexToValue = new HashMap<>();
 
         matchers.forEach(i -> {
-            while (i.find()) {
-                int startIndex = i.start();
-                String s = line.substring(startIndex, i.end());
-
-                Integer value = s.length() == 1 ? Integer.parseInt(s) : wordToValue.get(s);
-
-                // If the value doesn't exist, or if the starting index is less than what is stored
-                // Short-circuiting happens here
-                if (!indexToValueFront.containsValue(value) || startIndex < getKeysByValue(indexToValueFront, value))
-                    indexToValueFront.put(startIndex, value);
-                // This always replaces as we want the value that's at the back
-                indexToValueBack.put(startIndex, value);
-            }
+            while (i.find())
+                indexToValue.put(i.start(), wordToValue.get(line.substring(i.start(), i.end())) % 10);
         });
 
-        return indexToValueFront.get(indexToValueFront.keySet().stream().sorted().toList().get(0)) * 10 +
-                indexToValueBack.get(indexToValueBack.keySet().stream().sorted().toList().get(indexToValueBack.size() - 1));
+        return indexToValue.get(indexToValue.keySet().stream().sorted().toList().get(0)) * 10 +
+                indexToValue.get(indexToValue.keySet().stream().sorted().toList().get(indexToValue.size() - 1));
     }
-
-    private static <T, E> T getKeysByValue(Map<T, E> map, E value) {
-        return map.entrySet().stream()
-                  .filter(entry -> entry.getValue().equals(value))
-                  .map(Map.Entry::getKey).toList().get(0);
-    }
-
-
 }
