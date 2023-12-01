@@ -22,20 +22,22 @@ public class NumberStringParser {
                 "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
                 "0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
 
+        // Create list of matchers
         List<Matcher> matchers = patternStrings.stream().map(Pattern::compile).map(i -> i.matcher(line)).toList();
 
         // Map from word to value
         Map<String, Integer> wordToValue = new HashMap<>();
-        IntStream.range(0, 20).forEach(i -> wordToValue.put(patternStrings.get(i), i));
+        IntStream.range(0, 20).forEach(i -> wordToValue.put(patternStrings.get(i), i % 10));
 
         // Map of the digit's index to its value
         Map<Integer, Integer> indexToValue = new HashMap<>();
 
         matchers.forEach(i -> {
             while (i.find())
-                indexToValue.put(i.start(), wordToValue.get(line.substring(i.start(), i.end())) % 10);
+                indexToValue.put(i.start(), wordToValue.get(line.substring(i.start(), i.end())));
         });
 
+        // Sort the keySet to find the smallest and largest index, then return the sum
         return indexToValue.get(indexToValue.keySet().stream().sorted().toList().get(0)) * 10 +
                 indexToValue.get(indexToValue.keySet().stream().sorted().toList().get(indexToValue.size() - 1));
     }
