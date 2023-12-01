@@ -1,4 +1,4 @@
-package AoC2023.AoC2023_1;
+package AoC2023.Day1;
 
 import java.util.*;
 import java.util.regex.Matcher;
