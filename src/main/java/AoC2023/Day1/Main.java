@@ -14,5 +14,11 @@ public class Main {
         System.out.println("Part 1: " + np.getSum());
         NumberStringParser nsp = new NumberStringParser(f.getLines());
         System.out.println("Part 2: " + nsp.getSum());
+
+        System.out.println("Using alternate class:");
+        AlternateNumberStringParser ansp = new AlternateNumberStringParser(f.getLines(), false);
+        System.out.println("Part 1: " + ansp.getSum());
+        AlternateNumberStringParser ansp2 = new AlternateNumberStringParser(f.getLines(), true);
+        System.out.println("Part 2: " + ansp2.getSum());
     }
 }
