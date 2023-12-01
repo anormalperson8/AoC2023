@@ -34,13 +34,3 @@ public class FileInput {
     }
 }
 
-class A {
-  void b() {
-    try {
-        Stream<Integer> s = Stream.of(1, 2, 3);
-        s.filter(i -> i != -1);
-    } catch (Exception e) {
-        throw new RuntimeException(e);
-    }
-  }
-}
