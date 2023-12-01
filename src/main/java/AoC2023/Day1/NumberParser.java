@@ -1,9 +1,6 @@
 package AoC2023.Day1;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.IntStream;
 
 public class NumberParser {
     protected final List<String> lines = new ArrayList<>();
