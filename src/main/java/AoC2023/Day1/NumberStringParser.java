@@ -8,6 +8,12 @@ import java.util.stream.IntStream;
 public class NumberStringParser {
     private final List<String> lines = new ArrayList<>();
 
+    // Get all the things for matching
+    List<String> patternStrings = List.of(
+            "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+
+
     public NumberStringParser(List<String> lines) {
         this.lines.addAll(lines);
     }
@@ -17,11 +23,6 @@ public class NumberStringParser {
     }
 
     private Integer parseLine(String line) {
-        // Get all the things for matching
-        List<String> patternStrings = List.of(
-                "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
-
         // Create list of matchers
         List<Matcher> matchers = patternStrings.stream().map(Pattern::compile).map(i -> i.matcher(line)).toList();
 
