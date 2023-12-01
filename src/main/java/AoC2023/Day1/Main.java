@@ -10,8 +10,9 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("--Advent Of Code Day 1--");
         FileInput f = new FileInput("input" + File.separator + "AoC2023_1.txt");
-        NumberTurner n = new NumberTurner(f.getLines());
-        System.out.println("Part 1: " + n.getSum());
-        System.out.println("Part 2: " + n.getSum2());
+        NumberParser np = new NumberParser(f.getLines());
+        System.out.println("Part 1: " + np.getSum());
+        NumberParser nsp = new NumberStringParser(f.getLines());
+        System.out.println("Part 2: " + nsp.getSum());
     }
 }
