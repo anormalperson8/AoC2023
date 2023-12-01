@@ -1,12 +1,7 @@
 package AoC2023.Day1;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.IntStream;
 
 public class AlternateNumberStringParser {
     private final List<String> lines = new ArrayList<>();
