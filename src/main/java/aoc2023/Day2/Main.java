@@ -1,6 +1,6 @@
-package AoC2023.Day2;
+package aoc2023.Day2;
 
-import AoC2023.FileInput;
+import aoc2023.FileInput;
 
 import java.io.File;
 

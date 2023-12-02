@@ -1,4 +1,4 @@
-package AoC2023.Day2;
+package aoc2023.Day2;
 
 import java.util.ArrayList;
 import java.util.List;

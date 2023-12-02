@@ -1,4 +1,4 @@
-package AoC2023;
+package aoc2023;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,8 +23,8 @@ public class FileInput {
         }
     }
 
-    public void test() {
-        IntStream.range(0, 10).forEach(i -> System.out.println(this.lines.get(i)));
+    public List<String> test() {
+        return IntStream.range(0, 10).mapToObj(this.lines::get).toList();
     }
 
     public List<String> getLines() {
