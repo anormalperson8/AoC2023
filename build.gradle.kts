@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "org.example"
+group = "aoc2023"
 version = "1.0-SNAPSHOT"
 
 repositories {
