@@ -13,5 +13,9 @@ public class Main {
         System.out.println("Part 1: " + cbsp.get());
         CubeGameStringNumberGuesser cbsng = new CubeGameStringNumberGuesser(f.getLines());
         System.out.println("Part 2: " + cbsng.get());
+
+        System.out.println("Using the pseudo-one-line version:");
+        System.out.println("Part 1: " + cbsp.parseLines());
+        System.out.println("Part 2: " + cbsng.parseLines());
     }
 }
