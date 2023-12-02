@@ -1,4 +1,4 @@
-package aoc2023.Day1;
+package aoc2023.day1;
 
 import java.util.*;
 

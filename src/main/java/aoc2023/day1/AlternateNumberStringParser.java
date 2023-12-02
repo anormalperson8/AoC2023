@@ -1,4 +1,4 @@
-package aoc2023.Day1;
+package aoc2023.day1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +9,11 @@ public class AlternateNumberStringParser {
 
     // Get all the things for matching
     private final List<String> patternStrings = new ArrayList<>(List.of(
-                "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"));
+            "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"));
 
     public AlternateNumberStringParser(List<String> lines, boolean b) {
-        if (!b) IntStream.range(0,10).forEach(i -> patternStrings.remove(0));
+        if (!b) IntStream.range(0, 10).forEach(i -> patternStrings.remove(0));
         this.lines.addAll(lines);
     }
 

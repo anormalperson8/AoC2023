@@ -1,4 +1,4 @@
-package aoc2023.Day2;
+package aoc2023.day2;
 
 import aoc2023.FileInput;
 
