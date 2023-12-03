@@ -87,8 +87,8 @@ public class BiMap<K, V> {
 
     @Override
     public String toString() {
-        return "BiMap{\n" +
+        return "BiMap{" +
                 IntStream.range(0, this.size()).mapToObj(i -> k.get(i) + "<->" + v.get(i)).collect(Collectors.joining(", "))
-                + "\n}\n";
+                + "}";
     }
 }
