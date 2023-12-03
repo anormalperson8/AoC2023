@@ -22,7 +22,7 @@ public class PartRecogniser {
         });
 
         lineNum = 0;
-        //System.out.println(wordToIndex);
+        //wordToIndex.forEach(System.out::println);
     }
 
     private void classify(String line) {
