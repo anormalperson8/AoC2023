@@ -5,12 +5,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * A bidirectional map.
+ * A bidirectional "map".
  * Because this is just a "map" of 2 lists, users should be careful when having duplicate values, as unlike normal maps,
  * this implementation does not replace key/values, but append them only.
  * The getters would only be returning the first instance of the parameter passed through,
- * so one should make sure that one of the parameters,
- * key or value, should never repeat.
+ * so one should make sure that one of the parameters, key or value, should never repeat.
  */
 public class BiMap<K, V> {
 
