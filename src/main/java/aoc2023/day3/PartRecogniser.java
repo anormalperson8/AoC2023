@@ -9,7 +9,7 @@ public class PartRecogniser {
     protected final List<String> lines;
     protected final List<BiMap<String, Integer>> wordToIndex = new ArrayList<>();
     protected int lineNum = 0;
-    protected int i = 0;
+    private int i = 0;
 
 
     public PartRecogniser(List<String> lines) {
@@ -90,7 +90,6 @@ public class PartRecogniser {
                 .map(Integer::parseInt).mapToInt(Integer::intValue).sum();
 
         ++lineNum;
-
         return sum;
     }
 
@@ -121,5 +120,9 @@ public class PartRecogniser {
         }
 
         return false;
+    }
+
+    protected boolean isDigit(char c) {
+        return c >= '0' && c <= '9';
     }
 }

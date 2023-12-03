@@ -36,6 +36,7 @@ public class GearRecogniser extends PartRecogniser {
                 if (isDigit(after)) {
                     gears.add(Integer.parseInt(m.getKey(endIndex)));
                 }
+
                 // Check next row
                 if (lineNum != lines.size() - 1) {
                     char beforeNext = lines.get(lineNum + 1).charAt(startIndex);
@@ -48,6 +49,7 @@ public class GearRecogniser extends PartRecogniser {
                     IntStream.range(startIndex + 1, endIndex + 1).filter(wordToIndex.get(lineNum + 1)::containsValue).boxed()
                             .forEach(n -> gears.add(Integer.parseInt(wordToIndex.get(lineNum + 1).getKey(n))));
                 }
+
                 // Check previous row
                 if (lineNum != 0) {
                     char afterNext = lines.get(lineNum - 1).charAt(startIndex);
@@ -66,9 +68,5 @@ public class GearRecogniser extends PartRecogniser {
 
         ++lineNum;
         return sum;
-    }
-
-    private boolean isDigit(char c) {
-        return c >= '0' && c <= '9';
     }
 }
