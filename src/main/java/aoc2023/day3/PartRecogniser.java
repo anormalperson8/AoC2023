@@ -101,30 +101,23 @@ public class PartRecogniser {
         //System.out.println("For string " + s + " in line " + lineNum + " (start: " + startIndex + ", end: " + endIndex + "):");
 
         // Check before and after
-        if (m.containsValue(startIndex) || m.containsValue(endIndex)) {
-            //System.out.println("Same row activates");
+        if (m.containsValue(startIndex) || m.containsValue(endIndex))
             return true;
-        }
 
         // Check next row
         if (lineNum != lines.size() - 1) {
             BiMap<String, Integer> next = wordToIndex.get(lineNum + 1);
             //System.out.println(Arrays.toString(IntStream.range(startIndex, endIndex + 1).filter(next::containsValue).toArray()));
             if (!IntStream.range(startIndex, endIndex + 1).filter(next::containsValue)
-                    .mapToObj(next::getKey).filter(w -> !w.matches(".*\\d.*")).toList().isEmpty()) {
-                //System.out.println("Next row activates");
+                    .mapToObj(next::getKey).filter(w -> !w.matches(".*\\d.*")).toList().isEmpty())
                 return true;
-            }
         }
 
         // Check previous row
         if (lineNum != 0) {
             BiMap<String, Integer> prev = wordToIndex.get(lineNum - 1);
-            if (!IntStream.range(startIndex, endIndex + 1).filter(prev::containsValue)
-                    .mapToObj(prev::getKey).filter(w -> !w.matches(".*\\d.*")).toList().isEmpty()) {
-                //System.out.println("Prev row activates");
-                return true;
-            }
+            return !IntStream.range(startIndex, endIndex + 1).filter(prev::containsValue)
+                    .mapToObj(prev::getKey).filter(w -> !w.matches(".*\\d.*")).toList().isEmpty();
         }
 
         return false;
