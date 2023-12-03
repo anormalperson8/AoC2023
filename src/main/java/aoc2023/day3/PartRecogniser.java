@@ -2,7 +2,8 @@ package aoc2023.day3;
 
 import aoc2023.BiMap;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class PartRecogniser {
