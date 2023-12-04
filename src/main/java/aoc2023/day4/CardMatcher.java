@@ -1,7 +1,6 @@
 package aoc2023.day4;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
