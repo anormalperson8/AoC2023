@@ -12,7 +12,6 @@ import java.util.stream.IntStream;
  * so one should make sure that one of the parameters, key or value, should never repeat.
  */
 public class BiMap<K, V> {
-
     private final List<K> k;
     private final List<V> v;
 
@@ -26,9 +25,9 @@ public class BiMap<K, V> {
         this.v = new ArrayList<>(map.v);
     }
 
-    public void put(K value1, V value2) {
-        this.k.add(value1);
-        this.v.add(value2);
+    public void put(K key, V value) {
+        this.k.add(key);
+        this.v.add(value);
     }
 
     public V getValue(K key) {
