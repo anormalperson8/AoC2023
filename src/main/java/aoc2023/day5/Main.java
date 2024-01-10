@@ -1,11 +1,8 @@
 package aoc2023.day5;
 
 import aoc2023.FileInput;
-import aoc2023.Pair;
 
 import java.io.File;
-import java.util.Comparator;
-import java.util.List;
 
 public class Main {
 
@@ -15,7 +12,6 @@ public class Main {
         LocationFinder lf = new LocationFinder(f.getLines());
         System.out.println("Part 1: " + lf.findSeed());
 
-        LocationFinder lf2 = new LocationFinder(f.getLines());
-        System.out.println("Part 2: " + lf2.findRangeSeed());
+        System.out.println("Part 2: " + lf.findRangeSeed());
     }
 }
