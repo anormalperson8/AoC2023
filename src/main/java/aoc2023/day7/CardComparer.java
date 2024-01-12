@@ -3,10 +3,8 @@ package aoc2023.day7;
 import aoc2023.Pair;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 public class CardComparer {
