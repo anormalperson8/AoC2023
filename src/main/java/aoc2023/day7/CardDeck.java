@@ -6,7 +6,6 @@ public class CardDeck implements Comparable<CardDeck> {
     private final List<Card> cards;
     private final HashMap<Card, Integer> map = new HashMap<>();
     private final List<Card> sortedCards;
-    public String temp() {return this.cards.toString();}
 
     public CardDeck(String line) {
          cards = Arrays.stream(line.split("")).map(i -> i.charAt(0)).map(Card::new).toList();
