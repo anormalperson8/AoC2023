@@ -1,6 +1,6 @@
 ## AoC 2023
 
-This is the repo for my attempt at [Advent of Code 2023](https://adventofcode.com/).
+This is the repo for my attempt at [Advent of Code 2023](https://adventofcode.com/2023).
 
 Will I finish all 25 puzzles? I don't know, but definitely not in time.
 
